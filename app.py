@@ -4,9 +4,7 @@ from yaml.loader import SafeLoader
 import streamlit_authenticator as stauth
 
 def main():
-    st.title("My First Streamlit App")
-    st.write("Hello, World!")
-
+    st.title("Welcome to the SkulptGPT Fitness AI App")
 
     with open('config.yaml') as file:
         config = yaml.load(file, Loader=SafeLoader)
