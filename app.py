@@ -25,7 +25,7 @@ def main():
 
     authenticator.login('Login', 'main')
 
-    with open('../config.yaml', 'w') as file:
+    with open('config.yaml', 'w') as file:
         yaml.dump(config, file, default_flow_style=False)
 
     if st.session_state["authentication_status"]:
