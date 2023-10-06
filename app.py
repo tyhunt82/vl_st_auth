@@ -24,8 +24,9 @@ def main():
     authenticator.login('Login', 'main')
 
     if st.session_state["authentication_status"]:
-        authenticator.logout('Logout', 'main', key='unique_key')
-        st.write(f'Welcome *{st.session_state["name"]}*')
+        with st.sidebar:
+            authenticator.logout('Logout', 'main', key='unique_key')
+            st.write(f'Welcome *{st.session_state["name"]}*')
 
     elif st.session_state["authentication_status"] is False:
         st.error('Username/password is incorrect')
