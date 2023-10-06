@@ -6,6 +6,11 @@ import streamlit_authenticator as stauth
 # References -----------------------------------------
 # Streamlit-autherticator -> https://github.com/mkhorasani/Streamlit-Authenticator?ref=blog.streamlit.io
 
+# set default case
+if "authentication_status" not in st.session_state:
+    st.session_state["authentication_status"] = False
+
+
 def main():
     st.title("Welcome to the SkulptGPT AI App")
 
