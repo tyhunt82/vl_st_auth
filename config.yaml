@@ -1,3 +1,7 @@
+cookie:
+  expiry_days: 30
+  key: random_signature_key
+  name: random_cookie_name
 credentials:
   usernames:
     thunt:
@@ -8,10 +12,6 @@ credentials:
       email: tyhunt82@gmail.com
       name: Tyler Hunt
       password: $2b$12$oiomVA9j.8bXHo.W1pweAeJSaT4huDutHDnBQhz2x.pt71hYMTqoe
-cookie:
-  expiry_days: 30
-  key: random_signature_key # Must be string
-  name: random_cookie_name
 preauthorized:
   emails:
   - tyler@vektirlabs.com
