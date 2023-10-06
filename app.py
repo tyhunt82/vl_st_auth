@@ -19,8 +19,8 @@ def main():
     if st.session_state["authentication_status"]==False:
         get_login()
 
-    elif st.session_state["authentication_status"] == False:
-        str.write("Logged in")
+    elif st.session_state["authentication_status"]:
+        st.write("Logged in")
 
 
 if __name__ == "__main__":
