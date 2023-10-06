@@ -15,15 +15,13 @@ def main():
    
 
     with st.sidebar:
-        auth_exp = st.expander('Auth', expanded=True)
-        with auth_exp:
-            authenticator = stauth.Authenticate(
-                config['credentials'],
-                config['cookie']['name'],
-                config['cookie']['key'],
-                config['cookie']['expiry_days'],
-                config['preauthorized']
-            )
+        authenticator = stauth.Authenticate(
+            config['credentials'],
+            config['cookie']['name'],
+            config['cookie']['key'],
+            config['cookie']['expiry_days'],
+            config['preauthorized']
+        )
 
         authenticator.login('Login', 'sidebar')
 
