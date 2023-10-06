@@ -7,11 +7,11 @@ credentials:
     thunt:
       email: tyler@vektirlabs.com
       name: Tyler Hunt
-      password: $2b$12$ozzaNleAWPxxqItK89yqpu45YjFM.ojrfseUptxSKEhM2KSC4SHN
+      password: $2b$12$shaWZbOVDeY8cx.fKT8XIeSzVzU53QiWdr5CgAYSVK3Ux2x.2CS/u
     thunt1:
       email: tyhunt82@gmail.com
       name: Tyler Hunt
-      password: $2b$12$ozzaNleAWPxxqItK89yqpu45YjFM.ojrfseUptxSKEhM2KSC4SHN
+      password: $2b$12$shaWZbOVDeY8cx.fKT8XIeSzVzU53QiWdr5CgAYSVK3Ux2x.2CS/u
 preauthorized:
   emails:
   - tyler@vektirlabs.com
