@@ -13,15 +13,8 @@ def main():
     with open('config.yaml') as file:
         config = yaml.load(file, Loader=SafeLoader)
     
-    
 
-
-    if st.session_state["authentication_status"]:
-        with st.sidebar:
-            authenticator.logout('Logout', 'main', key='unique_key')
-            # st.write(f'Welcome *{st.session_state["name"]}*')
-
-    elif st.session_state["authentication_status"] is False:
+    if st.session_state["authentication_status"] is False:
         authenticator = stauth.Authenticate(
             config['credentials'],
             config['cookie']['name'],
@@ -39,6 +32,12 @@ def main():
             </div>
             """
         st.markdown(links, unsafe_allow_html=True)
+
+
+    if st.session_state["authentication_status"]:
+        with st.sidebar:
+            authenticator.logout('Logout', 'main', key='unique_key')
+            # st.write(f'Welcome *{st.session_state["name"]}*')
 
     elif st.session_state["authentication_status"] is None:
         st.warning('Please enter your username and password')
