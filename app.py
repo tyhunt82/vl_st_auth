@@ -14,6 +14,7 @@ if "authentication_status" not in st.session_state:
 
 def main():
     st.title("Welcome to the SkulptGPT AI App")
+    st.sidebar("SkulptGPT")
 
     if st.session_state["authentication_status"]==False:
         get_login()
