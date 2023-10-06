@@ -13,7 +13,7 @@ def main():
         config = yaml.load(file, Loader=SafeLoader)
     
     hashed_passwords = stauth.Hasher(['abc', 'abc']).generate()
-    st.write(hashed_passwords)
+    # st.write(hashed_passwords)
 
     authenticator = stauth.Authenticate(
         config['credentials'],
@@ -23,8 +23,6 @@ def main():
         config['preauthorized']
     )
 
-    with open('config.yaml', 'w') as file:
-        yaml.dump(config, file, default_flow_style=False)
 
     authenticator.login('Login', 'main')
 
