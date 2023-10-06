@@ -5,7 +5,7 @@ import streamlit_authenticator as stauth
 
 def get_login():
     with open('config.yaml') as file:
-            config = yaml.load(file, Loader=SafeLoader)
+        config = yaml.load(file, Loader=SafeLoader)
 
     login_cont = st.container()
 
@@ -19,11 +19,11 @@ def get_login():
             )
 
         authenticator.login('Login', 'main')
-    links = """
+        links = """
         <div style="text-align: center;">
             <a href="#" target="_blank"> Forgot Username</a>  | 
             <a href="#" target="_blank"> Forgot Password</a>  | 
             <a href="#" target="_blank"> Register New</a>
         </div>
         """
-    st.markdown(links, unsafe_allow_html=True)
+        st.markdown(links, unsafe_allow_html=True)
