@@ -12,9 +12,6 @@ def main():
     with open('config.yaml') as file:
         config = yaml.load(file, Loader=SafeLoader)
     
-    hashed_passwords = stauth.Hasher(['abc', 'abc']).generate()
-    st.write(hashed_passwords)
-
     authenticator = stauth.Authenticate(
         config['credentials'],
         config['cookie']['name'],
@@ -23,8 +20,7 @@ def main():
         config['preauthorized']
     )
 
-
-    authenticator.login('Login', 'main')
+    authenticator.login('Login', 'sidebar')
 
     if st.session_state["authentication_status"]:
         authenticator.logout('Logout', 'main', key='unique_key')
