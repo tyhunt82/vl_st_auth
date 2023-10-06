@@ -12,24 +12,28 @@ def main():
     with open('config.yaml') as file:
         config = yaml.load(file, Loader=SafeLoader)
     
-    authenticator = stauth.Authenticate(
-        config['credentials'],
-        config['cookie']['name'],
-        config['cookie']['key'],
-        config['cookie']['expiry_days'],
-        config['preauthorized']
-    )
+    auth_exp = st.expander('Auth', expanded=True)
+    sb = st.sidebar()
+    with sb:
+        with auth_exp:
+            authenticator = stauth.Authenticate(
+                config['credentials'],
+                config['cookie']['name'],
+                config['cookie']['key'],
+                config['cookie']['expiry_days'],
+                config['preauthorized']
+            )
 
-    authenticator.login('Login', 'sidebar')
+            authenticator.login('Login', 'sidebar')
 
-    if st.session_state["authentication_status"]:
-        authenticator.logout('Logout', 'sidebar', key='unique_key')
-        st.write(f'Welcome *{st.session_state["name"]}*')
-        st.title('Some content')
-    elif st.session_state["authentication_status"] is False:
-        st.error('Username/password is incorrect')
-    elif st.session_state["authentication_status"] is None:
-        st.warning('Please enter your username and password')
+            if st.session_state["authentication_status"]:
+                authenticator.logout('Logout', 'sidebar', key='unique_key')
+                sb.write(f'Welcome *{st.session_state["name"]}*')
+                sb.title('Some content')
+            elif st.session_state["authentication_status"] is False:
+                sb.error('Username/password is incorrect')
+            elif st.session_state["authentication_status"] is None:
+                sb.warning('Please enter your username and password')
 
 if __name__ == "__main__":
     main()
