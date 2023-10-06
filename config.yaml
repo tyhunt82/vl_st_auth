@@ -1,0 +1,17 @@
+credentials:
+  usernames:
+    thunt:
+      email: tyler@vektirlabs.com
+      name: Tyler Hunt
+      password: abc123
+    rbriggs:
+      email: tyhunt82@gmail.com
+      name: Tyler Hunt
+      password: abc123
+cookie:
+  expiry_days: 30
+  key: random_signature_key # Must be string
+  name: random_cookie_name
+preauthorized:
+  emails:
+  - tyler@vektirlabs.com
