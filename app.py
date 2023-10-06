@@ -13,8 +13,8 @@ def main():
         config = yaml.load(file, Loader=SafeLoader)
     
     auth_exp = st.expander('Auth', expanded=True)
-    sb = st.sidebar()
-    with sb:
+    
+    with st.sidebar:
         with auth_exp:
             authenticator = stauth.Authenticate(
                 config['credentials'],
