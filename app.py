@@ -22,6 +22,15 @@ def main():
     )
 
     authenticator.login('Login', 'main')
+    links = """
+        <div style="text-align: center;">
+            <a href="https://your-site.com/forgot-username" target="_blank">Forgot Username</a> |
+            <a href="https://your-site.com/forgot-password" target="_blank">Forgot Password</a> |
+            <a href="https://your-site.com/register" target="_blank">Register New</a>
+        </div>
+        """
+    st.markdown(links, unsafe_allow_html=True)
+
 
     if st.session_state["authentication_status"]:
         with st.sidebar:
