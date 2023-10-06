@@ -23,7 +23,7 @@ def main():
     authenticator.login('Login', 'sidebar')
 
     if st.session_state["authentication_status"]:
-        authenticator.logout('Logout', 'main', key='unique_key')
+        authenticator.logout('Logout', 'sidebar', key='unique_key')
         st.write(f'Welcome *{st.session_state["name"]}*')
         st.title('Some content')
     elif st.session_state["authentication_status"] is False:
