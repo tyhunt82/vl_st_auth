@@ -29,10 +29,12 @@ def main():
             st.write(f'Welcome *{st.session_state["name"]}*')
 
     elif st.session_state["authentication_status"] is False:
-        st.error('Username/password is incorrect')
-        
+        with st.sidebar:
+            st.error('Username/password is incorrect')
+
     elif st.session_state["authentication_status"] is None:
-        st.warning('Please enter your username and password')
+        with st.sidebar:
+            st.warning('Please enter your username and password')
 
     
 
