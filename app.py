@@ -22,16 +22,16 @@ def main():
         with st.sidebar:
             if st.session_state["authentication_status"]:
                 st.write("Logged in")
-                with open('config.yaml') as file:
-                    config = yaml.load(file, Loader=SafeLoader)
-                authenticator = stauth.Authenticate(
-                    config['credentials'],
-                    config['cookie']['name'],
-                    config['cookie']['key'],
-                    config['cookie']['expiry_days'],
-                    config['preauthorized']
-                )
-                authenticator.logout('Logout', 'main', key='unique_key')
+            with open('config.yaml') as file:
+                config = yaml.load(file, Loader=SafeLoader)
+            authenticator = stauth.Authenticate(
+                config['credentials'],
+                config['cookie']['name'],
+                config['cookie']['key'],
+                config['cookie']['expiry_days'],
+                config['preauthorized']
+            )
+            authenticator.logout('Logout', 'main', key='unique_key')
 
 
 if __name__ == "__main__":
