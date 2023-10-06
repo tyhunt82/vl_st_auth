@@ -13,6 +13,7 @@ def main():
         config = yaml.load(file, Loader=SafeLoader)
     
     hashed_passwords = stauth.Hasher(['abc123', 'abc123']).generate()
+    st.write(hashed_passwords)
 
     authenticator = stauth.Authenticate(
         config['credentials'],
