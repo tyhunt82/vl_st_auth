@@ -7,7 +7,7 @@ import streamlit_authenticator as stauth
 # Streamlit-autherticator -> https://github.com/mkhorasani/Streamlit-Authenticator?ref=blog.streamlit.io
 
 def main():
-    st.title("Welcome to the SkulptGPT Fitness AI App")
+    st.title("Welcome to the SkulptGPT AI App")
 
     with open('config.yaml') as file:
         config = yaml.load(file, Loader=SafeLoader)
