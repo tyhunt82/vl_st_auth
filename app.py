@@ -23,6 +23,7 @@ def main():
         st.title("Welcome to the SkulptGPT AI App")
         with st.sidebar:
             get_logout()
+        print( st.session_state["authentication_status"] )
        
 
 
