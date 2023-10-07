@@ -2,7 +2,7 @@ import streamlit as st
 import yaml
 from yaml.loader import SafeLoader
 import streamlit_authenticator as stauth
-from components.login import get_login, get_config_read, get_config_write
+from components.login import get_login, get_config_read, get_config_write, get_auth
 
 # References -----------------------------------------
 # Streamlit-autherticator -> https://github.com/mkhorasani/Streamlit-Authenticator?ref=blog.streamlit.io
@@ -14,18 +14,15 @@ if "authentication_status" not in st.session_state:
 if "auth_config_read" not in st.session_state:
     st.session_state["auth_config_read"] = get_config_read()
 
-if "auth_config_write" not in st.session_state:
-    st.session_state["auth_config_write"] = get_config_write()
-
 if "authenticator" not in st.session_state:
-    st.session_state["auth_config_write"] = get_auth()
+    st.session_state["authenticator"] = get_auth(st.session_state["auth_config_read"])
 
 if "auth_login" not in st.session_state:
     st.session_state["auth_login"] = get_login(st.session_state["auth_config_read"])
 
 
 def main():
-    if st.session_state["authentication_status"]==False:
+    if st.session_state["authentication_status"] == False:
         st.session_state["auth_login"]
 
     elif st.session_state["authentication_status"]:
