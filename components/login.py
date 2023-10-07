@@ -13,11 +13,8 @@ def get_config_write(config):
         yaml.dump(config, file, default_flow_style=False)
     return config
 
-def get_login(config):
-    login_cont = st.container()
-
-    with login_cont:
-        authenticator = stauth.Authenticate(
+def get_auth(config):
+    return stauth.Authenticate(
                 config['credentials'],
                 config['cookie']['name'],
                 config['cookie']['key'],
@@ -25,6 +22,11 @@ def get_login(config):
                 config['preauthorized']
             )
 
+def get_login(config):
+    login_cont = st.container()
+
+    with login_cont:
+        authenticator = get_auth(config)
         authenticator.login('Login', 'main')
         links = """
         <div style="text-align: center;">
