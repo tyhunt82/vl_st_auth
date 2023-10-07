@@ -16,14 +16,15 @@ if "authentication_status" not in st.session_state:
 
 #  Main ----------------------------------------------
 def main():
-    if st.session_state["authentication_status"] == False:
+    if st.session_state["authentication_status"] is False:
+        st.title("Welcome to the SkulptGPT AI App")
         get_login()
 
-    elif st.session_state["authentication_status"]:
+    elif st.session_state["authentication_status"] is True:
         st.title("Welcome to the SkulptGPT AI App")
         with st.sidebar:
             get_logout()
-        print( st.session_state["authentication_status"] )
+        st.write(st.session_state["authentication_status"] )
        
 
 
