@@ -19,13 +19,11 @@ if "auth_login" not in st.session_state:
 
 
 def main():
-    st.title("Welcome to the SkulptGPT AI App")
-
     if st.session_state["authentication_status"]==False:
         st.session_state["auth_login"]
 
     elif st.session_state["authentication_status"]:
-        st.markdown("## SkulptGPT App")
+        st.title("Welcome to the SkulptGPT AI App")
        
 
 
