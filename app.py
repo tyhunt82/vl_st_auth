@@ -17,13 +17,10 @@ if "auth_config_read" not in st.session_state:
 if "authenticator" not in st.session_state:
     st.session_state["authenticator"] = get_auth(st.session_state["auth_config_read"])
 
-if "auth_login" not in st.session_state:
-    st.session_state["auth_login"] = get_login(st.session_state["auth_config_read"])
-
-
+#  Main ----------------------------------------------
 def main():
     if st.session_state["authentication_status"] == False:
-        st.session_state["auth_login"]
+        get_login()
 
     elif st.session_state["authentication_status"]:
         st.title("Welcome to the SkulptGPT AI App")
