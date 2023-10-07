@@ -22,9 +22,7 @@ def main():
 
     elif st.session_state["authentication_status"] is True:
         st.title("Welcome to the SkulptGPT AI App")
-        with st.sidebar:
-            get_logout()
-        st.write(st.session_state["authentication_status"] )
+        st.write("Hello")
        
 
 
