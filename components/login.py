@@ -2,19 +2,18 @@ import streamlit as st
 import yaml
 from yaml.loader import SafeLoader
 import streamlit_authenticator as stauth
+import uuid
 
-def get_config_read():
+def get_auth():
     with open('config.yaml') as file:
         config = yaml.load(file, Loader=SafeLoader)
-    return config
-
-def get_auth(config):
     return stauth.Authenticate(
                 config['credentials'],
                 config['cookie']['name'],
                 config['cookie']['key'],
                 config['cookie']['expiry_days'],
-                config['preauthorized']
+                config['preauthorized'],
+                key=uuid.uuid1
             )
 
 def get_login():
@@ -38,6 +37,6 @@ def get_logout():
     logout_cont = st.container()
 
     with logout_cont:
-        authenticator = get_auth(get_config_read())
-        authenticator.logout('Logout', 'sidebar', key='unique_key')
+        authenticator = get_auth()
+        authenticator.logout('Logout', 'sidebar', key=uuid.uuid1)
     return logout_cont
