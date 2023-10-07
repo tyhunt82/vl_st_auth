@@ -2,7 +2,7 @@ import streamlit as st
 import yaml
 from yaml.loader import SafeLoader
 import streamlit_authenticator as stauth
-from components.login import get_login, get_config_read, get_config_write, get_auth
+from components.login import get_login, get_config_read, get_auth
 
 # References -----------------------------------------
 # Streamlit-autherticator -> https://github.com/mkhorasani/Streamlit-Authenticator?ref=blog.streamlit.io
