@@ -12,8 +12,7 @@ def get_auth():
                 config['cookie']['name'],
                 config['cookie']['key'],
                 config['cookie']['expiry_days'],
-                config['preauthorized'],
-                key=uuid.uuid1
+                config['preauthorized']
             )
 
 def get_login():
@@ -21,7 +20,7 @@ def get_login():
     login_cont = st.container()
 
     with login_cont:
-        authenticator = get_auth(get_config_read())
+        authenticator = get_auth()
         authenticator.login('Login', 'main')
         links = """
         <div style="text-align: center;">
@@ -38,5 +37,5 @@ def get_logout():
 
     with logout_cont:
         authenticator = get_auth()
-        authenticator.logout('Logout', 'sidebar', key=uuid.uuid1)
+        authenticator.logout('Logout', 'sidebar')
     return logout_cont
