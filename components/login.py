@@ -18,6 +18,7 @@ def get_auth(config):
             )
 
 def get_login():
+
     login_cont = st.container()
 
     with login_cont:
@@ -33,25 +34,10 @@ def get_login():
         st.markdown(links, unsafe_allow_html=True)
     return login_cont
 
-# def get_logout(config):
-#     logout_cont = st.container()
+def get_logout(config):
+    logout_cont = st.container()
 
-#     with logout_cont:
-#         authenticator = stauth.Authenticate(
-#                 config['credentials'],
-#                 config['cookie']['name'],
-#                 config['cookie']['key'],
-#                 config['cookie']['expiry_days'],
-#                 config['preauthorized']
-#             )
-
-#         authenticator.logout('Logout', 'sidebar', key='unique_key')
-#         links = """
-#         <div style="text-align: center;">
-#             <a href="#" target="_blank"> Forgot Username</a>  | 
-#             <a href="#" target="_blank"> Forgot Password</a>  | 
-#             <a href="#" target="_blank"> Register New</a>
-#         </div>
-#         """
-#         st.markdown(links, unsafe_allow_html=True)
+    with logout_cont:
+        authenticator = get_auth(get_config_read())
+        authenticator.logout('Logout', 'sidebar', key='unique_key')
     return logout_cont

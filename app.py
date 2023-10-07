@@ -2,7 +2,7 @@ import streamlit as st
 import yaml
 from yaml.loader import SafeLoader
 import streamlit_authenticator as stauth
-from components.login import get_login, get_config_read, get_auth
+from components.login import get_login, get_logout, get_config_read, get_auth
 
 # References -----------------------------------------
 # Streamlit-autherticator -> https://github.com/mkhorasani/Streamlit-Authenticator?ref=blog.streamlit.io
@@ -24,6 +24,8 @@ def main():
 
     elif st.session_state["authentication_status"]:
         st.title("Welcome to the SkulptGPT AI App")
+        with st.sidebar:
+            get_logout()
        
 
 
