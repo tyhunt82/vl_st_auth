@@ -34,7 +34,7 @@ def get_login():
         st.markdown(links, unsafe_allow_html=True)
     return login_cont
 
-def get_logout(config):
+def get_logout():
     logout_cont = st.container()
 
     with logout_cont:
