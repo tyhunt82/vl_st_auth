@@ -11,8 +11,8 @@ from components.login import get_login, get_logout, get_auth
 if "authentication_status" not in st.session_state:
     st.session_state["authentication_status"] = False
 
-if "authenticator" not in st.session_state:
-    st.session_state["authenticator"] = get_auth()
+# if "authenticator" not in st.session_state:
+#     st.session_state["authenticator"] = get_auth()
 
 #  Main ----------------------------------------------
 def main():
